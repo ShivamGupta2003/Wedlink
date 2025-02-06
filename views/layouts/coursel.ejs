@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Bootstrap Carousel</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Optional Bootstrap Icons (for navigation arrows) -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+
+    <style>
+        .carousel-inner {
+            height: 400px; /* Set height of the carousel */
+        }
+        .carousel-item img {
+            object-fit: cover; /* Ensures image covers the area without distortion */
+            height: 100%; /* Make the image fill the container */
+        }
+        .carousel-caption {
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+            right: 20px;
+            color: white;
+            background-color: rgba(0, 0, 0, 0.5);
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+
+<div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+  <div class="carousel-indicators">
+    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+  </div>
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <div class="row no-gutters">
+        <div class="col-md-6">
+          <img src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRDBsjdFiKj4J37m_F6lhKP5w3IdtuofcMT6A&s' class="d-block w-100" alt="...">
+        </div>
+        <div class="col-md-6 d-flex justify-content-center align-items-center text-white">
+          <div class="carousel-caption">
+            <h5>Slide 1</h5>
+            <p>Some representative placeholder content for the first slide.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="carousel-item">
+      <div class="row no-gutters">
+        <div class="col-md-6">
+          <img src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRDBsjdFiKj4J37m_F6lhKP5w3IdtuofcMT6A&s' class="d-block w-100" alt="...">
+        </div>
+        <div class="col-md-6 d-flex justify-content-center align-items-center text-white">
+          <div class="carousel-caption">
+            <h5>Slide 2</h5>
+            <p>Some representative placeholder content for the second slide.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="carousel-item">
+      <div class="row no-gutters">
+        <div class="col-md-6">
+          <img src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRDBsjdFiKj4J37m_F6lhKP5w3IdtuofcMT6A&s' class="d-block w-100" alt="...">
+        </div>
+        <div class="col-md-6 d-flex justify-content-center align-items-center text-white">
+          <div class="carousel-caption">
+            <h5>Slide 3</h5>
+            <p>Some representative placeholder content for the third slide.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
+
+<!-- Bootstrap JS and dependencies -->
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
+
+</body>
+</html>

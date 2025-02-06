@@ -1,0 +1,151 @@
+<!-- Offcanvas Navbar (for mobile) -->
+<div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+    <div class="offcanvas-header">
+        <h5 class="offcanvas-title" id="offcanvasNavbarLabel">WedInk</h5>
+        <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body">
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="/listings">Home</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Link</a>
+            </li>
+            <li>
+                <form action="/listings" method="GET" class="d-flex mb-2 mb-lg-0">
+                    <input class="form-control me-2" type="search" name="shopName" placeholder="Enter shop name" aria-label="Search">
+                    <button class="btn btn-outline-light" type="submit">Search</button>
+                </form>
+            </li>
+        </ul>
+    </div>
+</div>
+
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg bg-dark st">
+  <div class="container-fluid">
+      <!-- Navbar Toggle Button (Three Lines) -->
+      <button class="navbar-toggler border-white" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
+          <span class="navbar-toggler-icon" style="filter: invert(1);"></span>
+      </button>
+
+      <!-- Brand Name -->
+      <a class="navbar-brand text-white" href="/">WedInk</a>
+
+      <!-- Links & Search for Desktop -->
+      <div class="collapse navbar-collapse d-lg-flex justify-content-between align-items-center w-100">
+          <ul class="navbar-nav d-flex flex-row mb-2 mb-lg-0">
+              <li class="nav-item">
+                  <a class="nav-link text-white active" aria-current="page" href="/listings">Home</a>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link text-white" href="#">Link</a>
+              </li>
+          </ul>
+
+          <form action="/listings" method="GET" class="d-flex mb-2 mb-lg-0">
+              <input class="form-control me-2 text-white bg-transparent border-white" type="search" name="shopName" placeholder="Enter shop name" aria-label="Search">
+              <button class="btn btn-outline-light" type="submit">Search</button>
+          </form>
+      </div>
+  </div>
+</nav>
+
+
+<!-- Bootstrap Scripts -->
+<script>
+    // Make navbar toggle icon white
+    document.addEventListener("DOMContentLoaded", function () {
+        document.querySelector(".navbar-toggler-icon").style.filter = "brightness(0) invert(1)";
+    });
+</script>
+
+<!-- Custom Styles -->
+<style>
+.st {
+    position: fixed !important;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1; /* Ensure it's above other elements */
+    background-color: #000 !important; /* Keep navbar dark */
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Optional shadow */
+}
+
+body {
+    padding-top: 70px; 
+}
+
+/* Offcanvas Navbar Styling */
+.offcanvas {
+    background-color: #333 !important;
+    color: white !important;
+   /* Ensures the offcanvas panel is above navbar */
+}
+
+.offcanvas-header {
+    z-index: 1060; /* Ensure the header and button are above navbar */
+}
+
+.offcanvas .offcanvas-title {
+    color: white !important;
+}
+
+.offcanvas .nav-link {
+    color: white !important;
+}
+
+.offcanvas .nav-link:hover {
+    color: #f8d210 !important; /* Optional yellow hover */
+}
+
+.offcanvas .form-control {
+    color: white !important;
+    background-color: rgba(255, 255, 255, 0.2) !important;
+    border: 1px solid white !important;
+}
+
+.offcanvas .form-control::placeholder {
+    color: rgba(255, 255, 255, 0.7) !important;
+}
+
+.offcanvas .btn-outline-light {
+    color: white !important;
+    border-color: white !important;
+}
+
+.offcanvas .btn-outline-light:hover {
+    background-color: white !important;
+    color: black !important;
+}
+
+/* Navbar Styling */
+.navbar {
+    background-color: #222 !important; /* Dark background */
+}
+
+.navbar .nav-link {
+    color: white !important;
+}
+
+.navbar .nav-link:hover {
+    color: #f8d210 !important; /* Yellow hover */
+}
+
+.navbar .form-control {
+    background: transparent !important;
+    color: white !important;
+    border: 1px solid white !important;
+}
+
+.navbar .form-control::placeholder {
+    color: rgba(255, 255, 255, 0.7) !important;
+}
+
+.navbar .btn-outline-light:hover {
+    background-color: white !important;
+    color: black !important;
+}
+
+</style>

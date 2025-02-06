@@ -1,0 +1,14 @@
+
+        /* Make body take full height */
+        html,
+        body {
+            height: 100%;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Make content area grow to push the footer down */
+        .main-content {
+            flex: 1;
+        }
