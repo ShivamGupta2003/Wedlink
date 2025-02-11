@@ -30,8 +30,10 @@
     width: 100%;
     height: 100%;
     overflow: hidden;
-    z-index: -1; /* Sends video to background */
+  
+    background-color: rgba(0, 0, 0, 0.6) !important;
 }
+
 
 .video-container video {
     position: absolute;
@@ -43,6 +45,7 @@
     height: auto;
     transform: translate(-50%, -50%);
     object-fit: cover;
+    z-index: -1;
 }
 
 /* Content Overlay */
@@ -58,7 +61,7 @@
 
 /* Content Style */
 h1 {
-    font-size: 4rem; /* Default font size */
+    font-size: 5rem !important; /* Default font size */
 }
 
 p {
@@ -68,14 +71,15 @@ p {
 /* Larger h1 and smaller p on mobile screens */
 @media (max-width: 912px) {
     h1 {
-        font-size: 5rem; /* Increase font size for h1 */
+        font-size: 4rem !important;
+        margin-bottom: .6rem !important; /* Increase font size for h1 */
     }
     p {
-        font-size: 0.9rem; /* Decrease font size for paragraph */
+        font-size: 0.7rem  !important; /* Decrease font size for paragraph */
     }
     .btn {
         font-size: 1rem;
-        padding: 12px 20px;
+        padding: 12px 20px ;
     }
 }
 
@@ -102,9 +106,64 @@ p {
 
 /* Round button style */
 .roundess {
-    border-radius: 90%;
+    border-radius: 90% !important;
     font-size: 1rem;
 }
+
+@keyframes fadeBounce {
+        0% {
+            opacity: 0;
+            transform: translateY(-30px);
+        }
+        50% {
+            opacity: 0.5;
+            transform: translateY(10px);
+        }
+        100% {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    /* Apply Animation */
+    .animated-text {
+        color: skyblue !important;
+        text-decoration: underline !important;
+        font-size: 5rem !important;
+        animation: fadeBounce 1.5s ease-in-out forwards;
+    }
+
+    /* Responsive Size */
+    @media (max-width: 768px) {
+        .animated-text {
+            font-size: 3.5rem !important;
+        }
+    }
+
+
+    .pop-button {
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+        animation: popAnimation 1.5s infinite ease-in-out;
+    }
+
+    /* Pop Effect on Hover */
+    .pop-button:hover {
+        transform: scale(1.15);
+        box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.3);
+    }
+
+    /* Pop Effect on Click */
+    .pop-button:active {
+        transform: scale(0.9);
+        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    /* Infinite Pop Animation */
+    @keyframes popAnimation {
+        0% { transform: scale(1); }
+        50% { transform: scale(1.1); }
+        100% { transform: scale(1); }
+    }
 
     </style>
 </head>
@@ -123,13 +182,14 @@ p {
     </video>
 </div>
 <div class="content">
-    <h1 style="color: skyblue; text-decoration: underline;">Welcome to WedInk</h1>
+    <h1 id="animatedText" class="animated-text">Welcome</h1>
+
 
     <p>Ultimate destination for creating custom celebration cards online! Whether it's a wedding, birthday, or any special occasion, we help you design unique and personalized cards to suit your event perfectly </p>
 
    
     <form method="get" action="/listings">
-        <button  class="btn btn-primary btn-lg roundess" >Explore</button>
+        <button class="btn btn-primary btn-lg roundess pop-button">Explore</button>
 
     </form>
  
@@ -146,6 +206,32 @@ p {
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
 
+<script>
+    function animateTextInfinite() {
+        const text = "Welcome";
+        const animatedTextElement = document.getElementById("animatedText");
 
+        let index = 0;
+        animatedTextElement.innerHTML = ""; // Clear text before each animation
+
+        function showLetter() {
+            if (index < text.length) {
+                animatedTextElement.innerHTML += text[index];
+                index++;
+                setTimeout(showLetter, 400); // Delay each letter by 400ms
+            } else {
+                setTimeout(() => {
+                    animatedTextElement.innerHTML = ""; // Clear text
+                    index = 0; // Reset index
+                    showLetter(); // Restart animation
+                }, 6000); // Wait 1 sec before restarting
+            }
+        }
+
+        showLetter();
+    }
+
+    document.addEventListener("DOMContentLoaded", animateTextInfinite);
+</script>
 </body>
 </html>

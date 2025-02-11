@@ -59,14 +59,18 @@
         </button>
 
         <a class="navbar-brand" href="/">
-            <i class="fas fa-rings me-2"></i>WedInk
+            <i class="fa-regular fa-compass mass"></i>
         </a>
 
         <div class="collapse navbar-collapse">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="/listings">Home</a>
+                    <a class="nav-link active" aria-current="page" href="/">WedInk</a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link" aria-current="page" href="/listings">Home</a>
+                </li>
+                
                 <% if(!curruser){ %>
                     <li class="nav-item">
                         <a class="nav-link" href="/login">Login</a>
@@ -101,7 +105,7 @@
 <style>
     /* Navbar Styles */
     .navbar {
-        background-color: rgba(0, 0, 0, 0.9) !important;
+        background-color: #252020 !important;
         backdrop-filter: blur(10px);
         padding: 1rem 0;
         transition: all 0.3s ease;
@@ -109,8 +113,8 @@
 
     .navbar-brand {
         color: white !important;
-        font-weight: 600;
-        font-size: 1.5rem;
+        font-weight: 600 !important;
+        font-size: 1.5rem !important;
     }
 
     .navbar .nav-link {
@@ -119,6 +123,11 @@
         padding: 0.5rem 1rem;
         transition: all 0.3s ease;
         position: relative;
+    }
+    .mass {
+        
+        font-size: 2.1rem !important;
+        color: rgb(221, 169, 114) !important;
     }
 
     .navbar .nav-link::after {
@@ -204,10 +213,8 @@
         }
     }
 
-    /* Body padding for fixed navbar */
-    body {
-        padding-top: 80px;
-    }
+    
+    
 </style>
 
 <!-- Add Font Awesome if not already included -->

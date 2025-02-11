@@ -18,7 +18,7 @@
             box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
             border: 1px solid rgba(212, 175, 55, 0.3);
             max-width: 1100px;
-            margin: 2rem auto;
+            margin: 1.5rem auto;
         }
 
         .page-title {
@@ -110,8 +110,8 @@
 
         @media (max-width: 768px) {
             .listing-container {
-                padding: 1.5rem;
-                margin: 1rem;
+                padding: 0.7rem !important;
+                margin: 0 rem !important;
             }
 
             .page-title {
@@ -123,14 +123,14 @@
             }
 
             .listing-details li {
-                font-size: .9rem;
+                font-size: 1.4rem;
             }
         }
     </style>
 </head>
 <body>
     <% layout("/layouts/boilerplate") %>
-    <div class="container">
+    <div>
         <div class="listing-container">
             <h1 class="page-title">Marriage Card Details</h1>
             <% if (marriageCard) { %>

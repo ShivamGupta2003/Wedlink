@@ -130,7 +130,7 @@ const validateBooking = (req, res, next) => {
 
 app.get(
   "/listings",
-  isLoggedIn,
+
   wrapAsync(async (req, res) => {
     let { shopName } = req.query;
 
@@ -141,7 +141,10 @@ app.get(
     }
 
     try {
-      const existingListing = await Listing.findOne({ owner: req.user._id });
+      let existingListing = null;
+      if (req.isAuthenticated()) {
+        existingListing = await Listing.findOne({ owner: req.user._id });
+      }
       const alllistings = await Listing.find(filter);
       res.render("listings/index", { alllistings, existingListing });
     } catch (err) {

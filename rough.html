@@ -2,166 +2,150 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Marriage Venues</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Background Video</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Add Font Awesome for icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <style>
-        .hero-section {
-            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
-                        url('https://images.unsplash.com/photo-1519225421980-715cb0215aed?ixlib=rb-1.2.1');
-            background-size: cover;
-            background-position: center;
-            color: white;
-            padding: 100px 0;
-            margin-bottom: 2rem;
-        }
 
-        .listing-card {
-            transition: transform 0.3s ease-in-out;
-            border: none;
-            border-radius: 15px;
-            overflow: hidden;
-        }
 
-        .listing-card:hover {
-            transform: translateY(-5px);
-        }
 
-        .card-img-top {
-            transition: transform 0.3s ease;
-        }
-
-        .listing-card:hover .card-img-top {
-            transform: scale(1.05);
-        }
-
-        .price-badge {
+      
+        .foor{
             position: absolute;
-            bottom: 1rem;
-            right: 1rem;
-            background-color: rgba(255, 255, 255, 0.9);
-            padding: 0.5rem 1rem;
-            border-radius: 25px;
-            font-weight: bold;
+            top: 105%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 100%;
+           
+          
         }
+        /* Content Style */
+       /* Video Background Container */
+.video-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: -1; /* Sends video to background */
+}
 
-        .filters-section {
-            background-color: #f8f9fa;
-            padding: 1rem;
-            border-radius: 10px;
-            margin-bottom: 2rem;
-        }
+.video-container video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    transform: translate(-50%, -50%);
+    object-fit: cover;
+}
+
+/* Content Overlay */
+.content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: white;
+    z-index: 1;
+}
+
+/* Content Style */
+h1 {
+    font-size: 4rem; /* Default font size */
+}
+
+p {
+    font-size: 1.2rem; /* Default font size for paragraph */
+}
+
+/* Larger h1 and smaller p on mobile screens */
+@media (max-width: 912px) {
+    h1 {
+        font-size: 5rem; /* Increase font size for h1 */
+    }
+    p {
+        font-size: 0.9rem; /* Decrease font size for paragraph */
+    }
+    .btn {
+        font-size: 1rem;
+        padding: 12px 20px;
+    }
+}
+
+/* Adjust for screens between 320px and 941px */
+@media (min-width: 320px) and (max-width: 941px) {
+    h1 {
+        font-size: 4.5rem; /* Slightly increased font size for h1 */
+    }
+    p {
+        font-size: 0.8rem; /* Slightly smaller font size for paragraph */
+    }
+    .btn {
+        font-size: 1.2rem;
+        padding: 15px 25px;
+    }
+}
+
+/* Styling for button */
+.btn-lg {
+    font-size: 1.5rem;
+    padding: 15px 30px;
+    margin-left: 15px;
+}
+
+/* Round button style */
+.roundess {
+    border-radius: 90%;
+    font-size: 1rem;
+}
+
     </style>
 </head>
 <body>
-    <% layout("/layouts/boilerplate") %>
-    
-    <!-- Hero Section -->
-    <div class="hero-section text-center">
-        <div class="container">
-            <h1 class="display-4 fw-bold mb-4">Find Your Perfect Wedding Venue</h1>
-            <p class="lead mb-4">Discover beautiful spaces to celebrate your special day</p>
-            <form method="GET" action="/listings/new" class="d-inline-block">
-                <button type="submit" class="btn btn-light btn-lg px-4 me-2">
-                    <i class="fas fa-plus-circle me-2"></i>List Your Venue
-                </button>
-            </form>
-        </div>
-    </div>
+  
+  
+   
 
-    <div class="container">
-        <!-- Filters Section -->
-        <div class="filters-section">
-            <div class="row align-items-center">
-                <div class="col-md-3">
-                    <select class="form-select">
-                        <option selected>Price Range</option>
-                        <option>Under ₹50,000</option>
-                        <option>₹50,000 - ₹1,00,000</option>
-                        <option>Above ₹1,00,000</option>
-                    </select>
-                </div>
-                <div class="col-md-3">
-                    <select class="form-select">
-                        <option selected>Capacity</option>
-                        <option>Up to 100 guests</option>
-                        <option>100-500 guests</option>
-                        <option>500+ guests</option>
-                    </select>
-                </div>
-                <div class="col-md-3">
-                    <select class="form-select">
-                        <option selected>Venue Type</option>
-                        <option>Banquet Hall</option>
-                        <option>Garden</option>
-                        <option>Resort</option>
-                    </select>
-                </div>
-                <div class="col-md-3">
-                    <button class="btn btn-primary w-100">Apply Filters</button>
-                </div>
-            </div>
-        </div>
+  
+    <%- include("../includes/navbar.ejs") %>
+<div class="video-container">
+  
+    <video autoplay loop muted playsinline>
+        <source src="images/8551791-uhd_3840_2160_25fps.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+</div>
+<div class="content">
+    <h1 style="color: skyblue; text-decoration: underline;">Welcome to WedInk</h1>
 
-        <!-- Listings Grid -->
-        <h3 class="mb-4 fw-bold">Featured Venues</h3>
-        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4">
-            <% for(let listing of alllistings) { %>
-            <div class="col">
-                <a href="/listings/<%= listing._id %>" class="text-decoration-none">
-                    <div class="card listing-card shadow h-100">
-                        <div class="position-relative">
-                            <img src="<%= listing.image %>" class="card-img-top" alt="<%= listing.shopName %>" style="height: 200px; object-fit: cover;">
-                            <div class="price-badge">
-                                <i class="fas fa-rupee-sign"></i> <%= listing.price.toLocaleString("en-IN") %> /night
-                            </div>
-                        </div>
-                        <div class="card-body">
-                            <h5 class="card-title text-dark mb-2"><%= listing.shopName %></h5>
-                            <p class="card-text text-muted">
-                                <i class="fas fa-map-marker-alt me-2"></i>Location
-                                <br>
-                                <i class="fas fa-users me-2"></i>Capacity
-                            </p>
-                        </div>
-                    </div>
-                </a>
-            </div>
-            <% } %>
-        </div>
-    </div>
+    <p>Ultimate destination for creating custom celebration cards online! Whether it's a wedding, birthday, or any special occasion, we help you design unique and personalized cards to suit your event perfectly </p>
 
-    <!-- Footer -->
-    <footer class="bg-dark text-light mt-5 py-4">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-4">
-                    <h5>About Us</h5>
-                    <p>Making wedding venue booking simple and memorable.</p>
-                </div>
-                <div class="col-md-4">
-                    <h5>Quick Links</h5>
-                    <ul class="list-unstyled">
-                        <li><a href="#" class="text-light">Popular Venues</a></li>
-                        <li><a href="#" class="text-light">How It Works</a></li>
-                        <li><a href="#" class="text-light">Contact Us</a></li>
-                    </ul>
-                </div>
-                <div class="col-md-4">
-                    <h5>Follow Us</h5>
-                    <div class="social-icons">
-                        <a href="#" class="text-light me-3"><i class="fab fa-facebook"></i></a>
-                        <a href="#" class="text-light me-3"><i class="fab fa-instagram"></i></a>
-                        <a href="#" class="text-light me-3"><i class="fab fa-twitter"></i></a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </footer>
+   
+    <form method="get" action="/listings">
+        <button  class="btn btn-primary btn-lg roundess" >Explore</button>
 
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
+    </form>
+ 
+</div>
+<!-- footer  -->
+
+<div class="foor ">
+
+    <%- include("../includes/footer.ejs") %>
+</div>
+</body>
+ 
+
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
+
+
 </body>
 </html>

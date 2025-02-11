@@ -12,5 +12,6 @@
         .main-content {
             flex: 1;
             /* Adjust this value as needed */
+    padding-top: 70px;
             margin-bottom: 40px;
         }

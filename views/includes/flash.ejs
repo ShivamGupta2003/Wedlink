@@ -1,6 +1,6 @@
 <% if (success && success.length){ %>
 
-    <div class="alert alert-success alert-dismissible fade show col-6 offset-3" role="alert">
+    <div class="alert alert-success alert-dismissible fade show responsive-alert" role="alert">
         <%= success %>
             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
     </div>
@@ -13,9 +13,32 @@
 
         <% if (error && error.length){ %>
 
-            <div class="alert alert-danger alert-dismissible fade show col-6 offset-3" role="alert">
+            <div class="alert alert-danger alert-dismissible fade show responsive-alert" role="alert">
+
                 <%= error %>
-                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
             </div>
+            
 
             <%}%>
+
+
+            <style>
+.responsive-alert {
+    width: 90%;  /* Default width */
+    max-width: 500px; 
+    margin: auto; /* Centers it */
+}
+
+@media (min-width: 768px) {
+    .responsive-alert {
+        width: 60%;
+    }
+}
+
+@media (min-width: 992px) {
+    .responsive-alert {
+        width: 40%;
+    }
+}
+    </style>

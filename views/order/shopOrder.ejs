@@ -86,6 +86,7 @@
                                     <p class="mb-2">
                                         <strong>Quantity:</strong> <%= booking.quantity %>
                                     </p>
+                                    <p class="mb-2"><strong>Total Price:</strong> ₹<%= booking.quantity * booking.marriageCard.price %></p>
                                     <% if (booking.customization) { %>
                                         <p class="mb-2">
                                             <strong>Customization:</strong> <%= booking.customization %>

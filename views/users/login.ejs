@@ -9,6 +9,7 @@
     <style>
         .card {
             transition: transform 0.3s ease, box-shadow 0.3s ease;
+            
         }
         .card:hover {
             transform: translateY(-5px);
@@ -33,12 +34,19 @@
         .form-control:not(:placeholder-shown) + .form-label {
             color: #28a745;
         }
+
+
+       
+        .move-up {
+            margin-top: -140px !important; /* Adjust the value as needed */
+        }
+       
     </style>
 </head>
 <body class="bg-light">
     <% layout("/layouts/boilerplate") %>
     <div class="container min-vh-100 d-flex align-items-center">
-        <div class="row justify-content-center w-100">
+        <div class="row justify-content-center w-100 move-up">
             <div class="col-lg-5 col-md-7 col-sm-12">
                 <div class="card shadow-lg p-4 animate__animated animate__fadeInUp">
                     <div class="text-center mb-4 animate__animated animate__fadeInDown">
