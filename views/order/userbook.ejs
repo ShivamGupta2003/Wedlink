@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Bookings</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+        .card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            overflow: hidden;
+        }
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+        }
+        .btn-danger {
+            transition: all 0.3s ease;
+        }
+        .btn-danger:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(220,53,69,0.4);
+        }
+        .badge {
+            transition: all 0.3s ease;
+        }
+        .badge:hover {
+            transform: scale(1.1);
+            opacity: 0.9;
+        }
+        .delete-form {
+            transition: opacity 0.3s ease;
+        }
+        .delete-form:hover {
+            opacity: 0.8;
+        }
+    </style>
+</head>
+<body>
+    <% layout("/layouts/boilerplate") %>
+    
+    <div class="container mt-5">
+        <h2 class="text-center mb-4 animate__animated animate__fadeInDown">Your Bookings</h2>
+
+        <% if (bookings.length === 0) { %>
+            <div class="alert alert-warning text-center animate__animated animate__fadeIn">
+                You have no bookings yet.
+            </div>
+        <% } else { %>
+            <div class="row justify-content-center">
+                <% bookings.forEach((booking, index) => { %>
+                    <div class="col-lg-6 col-md-8 col-sm-12 animate__animated animate__fadeInUp" >
+                        <div class="card shadow-lg mb-4">
+                            <div class="card-body">
+                                <div class="d-flex justify-content-between align-items-center mb-3">
+                                    <h5 class="card-title m-0">
+                                        <strong>Your Card:</strong> <%= booking.marriageCard.cardName %>
+                                    </h5>
+                                    <span class="badge 
+                                        <% if (booking.status === 'Pending') { %> bg-warning
+                                        <% } else if (booking.status === 'Confirmed') { %> bg-primary
+                                        <% } else if (booking.status === 'Completed') { %> bg-success
+                                        <% } else { %> bg-danger <% } %>">
+                                        <%= booking.status %>
+                                    </span>
+                                </div>
+
+                                <div class="card-text">
+                                    <p class="mb-2">
+                                        <strong>From Shop:</strong> <%= booking.shop.shopName %>
+                                    </p>
+                                    <p class="mb-2">
+                                        <strong>Quantity:</strong> <%= booking.quantity %>
+                                    </p>
+                                    <% if (booking.customization) { %>
+                                        <p class="mb-2">
+                                            <strong>Customization:</strong> <%= booking.customization %>
+                                        </p>
+                                    <% } %>
+                                    <p class="mb-3">
+                                        <strong>Shop Phone:</strong> <%= booking.shop.phoneNumber %>
+                                    </p>
+
+                                    <form action="/listings/<%= booking.shop._id %>/orders/<%= booking._id %>?_method=DELETE" 
+                                          method="POST" 
+                                          class="delete-form mt-2">
+                                        <button type="submit" class="btn btn-primary w-100">
+                                            Delete Booking
+                                        </button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                <% }) %>
+            </div>
+        <% } %>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Optional: Add confirmation for delete booking
+        document.querySelectorAll('.delete-form').forEach(form => {
+            form.addEventListener('submit', function(e) {
+                if (!confirm('Are you sure you want to delete this booking?')) {
+                    e.preventDefault();
+                }
+            });
+        });
+    </script>
+</body>
+</html>

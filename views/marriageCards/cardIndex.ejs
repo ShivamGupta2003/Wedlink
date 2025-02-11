@@ -1,0 +1,73 @@
+<% layout("/layouts/boilerplate") %>
+
+<div class="container py-5 animate__animated animate__fadeIn">
+    <!-- Header Section -->
+    <div class="row mb-4">
+        <div class="col-12">
+     
+            <h2 class="text-center h4 text-muted mb-4"><b>Shop Name:</b><%= shop.shopName %></h2>
+            
+            <% if(curruser && curruser._id.equals(shop.owner._id)) { %>
+                <div class="text-center">
+                    <a href="/listings/<%= shop._id %>/Mcard/new" class="btn btn-primary btn-lg animate__animated animate__pulse animate__infinite">
+                        <i class="fas fa-plus-circle me-2"></i>Create New Cards
+                    </a>
+                </div>
+            <% } %>
+        </div>
+    </div>
+
+    <!-- Cards Grid -->
+    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+        <% marriageCards.forEach(card => { %>
+            <div class="col">
+                <div class="card h-100 shadow-sm hover-shadow transition-all animate__animated animate__fadeInUp">
+                    <div class="position-relative">
+                        <img src="<%= card.image.url %>" 
+                             class="card-img-top"
+                             alt="<%= card.cardName %>"
+                             style="height: 200px; object-fit: cover;">
+                        <div class="position-absolute top-0 end-0 m-2">
+                            <span class="badge bg-primary fs-6">
+                                ₹ <%= card.price.toLocaleString("en-IN") %> /Card
+                            </span>
+                        </div>
+                    </div>
+                    
+                    <div class="card-body">
+                        <h5 class="card-title text-center mb-3">Card Name:<%= card.cardName %></h5>
+                        <div class="d-grid">
+                            <a href="/listings/<%= shop._id %>/Mcard/<%= card._id %>" 
+                               class="btn btn-outline-primary">
+                                <i class="fas fa-eye me-2"></i>View Details
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        <% }); %>
+    </div>
+
+    <!-- Empty State -->
+    <% if (marriageCards.length === 0) { %>
+        <div class="text-center py-5">
+            <div class="display-6 text-muted mb-3">No Cards Available</div>
+            <p class="lead">Check back later for new listings!</p>
+        </div>
+    <% } %>
+</div>
+
+<!-- Required CSS -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+<style>
+.hover-shadow:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 .5rem 1rem rgba(0,0,0,.15)!important;
+}
+
+.transition-all {
+    transition: all 0.3s ease-in-out;
+}
+</style>

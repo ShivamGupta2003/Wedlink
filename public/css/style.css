@@ -11,4 +11,6 @@
         /* Make content area grow to push the footer down */
         .main-content {
             flex: 1;
+            /* Adjust this value as needed */
+            margin-bottom: 40px;
         }

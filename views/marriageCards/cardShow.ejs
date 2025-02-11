@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Marriage Card Details</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background: linear-gradient(135deg, #fff9f9 0%, #fff5f6 100%);
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+        }
+
+        .listing-container {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            max-width: 1100px;
+            margin: 2rem auto;
+        }
+
+        .page-title {
+            color: #d4af37;
+            font-size: 2.5rem;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 2rem;
+            font-family: 'Georgia', serif;
+            position: relative;
+        }
+
+        .page-title::after {
+            content: '';
+            display: block;
+            width: 100px;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, #d4af37, transparent);
+            margin: 1rem auto;
+        }
+
+        .card {
+            background: #fff;
+            padding: 1.5rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+            border: none;
+            height: 100%;
+        }
+
+        .listing-details {
+            list-style: none;
+            padding: 0;
+        }
+
+        .listing-details li {
+            font-size: 1.1rem;
+            padding: 0.8rem 0;
+            color: #555;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .listing-details li:last-child {
+            border-bottom: none;
+        }
+
+        .price {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #d4af37;
+            padding: 1rem;
+            background: #fff9e6;
+            border-radius: 10px;
+            text-align: center;
+            margin: 1rem 0;
+        }
+
+        .listing-img {
+            width: 100%;
+            border-radius: 15px;
+            object-fit: cover;
+            height: 400px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .listing-img:hover {
+            transform: scale(1.02);
+        }
+
+        .btn-custom {
+            padding: 0.8rem 1.5rem;
+            border-radius: 10px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .btn-warning {
+            background-color: #d4af37;
+            border-color: #d4af37;
+            color: white;
+        }
+
+        .btn-warning:hover {
+            background-color: #c4a030;
+            border-color: #c4a030;
+            transform: translateY(-2px);
+        }
+
+        @media (max-width: 768px) {
+            .listing-container {
+                padding: 1.5rem;
+                margin: 1rem;
+            }
+
+            .page-title {
+                font-size: 2rem;
+            }
+
+            .listing-img {
+                height: 300px;
+            }
+
+            .listing-details li {
+                font-size: .9rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <% layout("/layouts/boilerplate") %>
+    <div class="container">
+        <div class="listing-container">
+            <h1 class="page-title">Marriage Card Details</h1>
+            <% if (marriageCard) { %>
+                <div class="row g-4">
+                    <!-- Image Section -->
+                    <div class="col-md-6">
+                        <img src="<%= marriageCard.image.url %>" alt="Marriage Card Image" class="listing-img">
+                    </div>
+
+                    <!-- Content Section -->
+                    <div class="col-md-6">
+                        <div class="card h-100">
+                            <ul class="listing-details">
+                                <li><strong>Shop Name:</strong> <%= listing.shopName %></li>
+                                <li><strong>Card Name:</strong> <%= marriageCard.cardName %></li>
+                                <li><strong>Description:</strong> <%= marriageCard.description %></li>
+                                <li><strong>Theme:</strong> <%= marriageCard.theme %></li>
+                                <li><strong>Material:</strong> <%= marriageCard.material %></li>
+                                <li><strong>Size:</strong> <%= marriageCard.size %></li>
+                                <li class="price">Price: &#8377; <%= marriageCard.price.toLocaleString("en-IN") %></li>
+                            </ul>
+                            <div class="price text-center mt-3">
+                                <a href="/listings/<%= listing._id %>/Mcard/<%= marriageCard._id %>/book" class="btn btn-primary">Book Card</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="text-center mt-4"> 
+                    <% if(curruser && curruser._id.equals(listing.owner._id)) { %>
+                        <a href="/listings/<%= listing._id %>/Mcard/<%= marriageCard._id %>/edit" class="btn btn-primary me-3 mt-3">Edit Card</a>
+                        <form method="POST" action="/listings/<%= listing._id %>/Mcard/<%= marriageCard._id %>?_method=DELETE" class="d-inline">
+                            <button class="btn btn-secondary me-3 mt-3">Delete Card</button>
+                        </form>
+                    <% } %>
+                </div>
+            <% } else { %>
+                <div class="alert alert-danger text-center">No card found.</div>
+            <% } %>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

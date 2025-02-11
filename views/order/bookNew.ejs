@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book a Marriage Card</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <style>
+        .card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2) !important;
+        }
+        .form-control:focus {
+            box-shadow: 0 0 0 0.25rem rgba(40, 167, 69, 0.25);
+            border-color: #28a745;
+            transition: all 0.3s ease;
+        }
+        .btn-primary {
+            background-color: #28a745;
+            border-color: #28a745;
+            transition: all 0.3s ease;
+        }
+        .btn-primary:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(40, 167, 69, 0.4);
+        }
+        .form-label {
+            transition: color 0.3s ease;
+            font-weight: bold;
+        }
+        .form-control:focus + .form-label,
+        .form-control:not(:placeholder-shown) + .form-label {
+            color: #28a745;
+        }
+        body {
+            background-color: #f8f9fa;
+        }
+    </style>
+</head>
+<body>
+    <% layout("/layouts/boilerplate") %>
+    <div class="container mt-5">
+        <h2 class="text-center mb-4 animate__animated animate__fadeInDown">Book a Marriage Card</h2>
+
+        <div class="row justify-content-center">
+            <div class="col-lg-6 col-md-8 col-sm-12">
+                <div class="card shadow-lg p-4 animate__animated animate__fadeInUp">
+                    <form method="POST" action="/listings/<%= listing._id %>/Mcard/<%= marriageCard._id %>/book" class="needs-validation" novalidate>
+                        
+                        <!-- Hidden Fields -->
+                        <input type="hidden" name="booking[shop]" value="<%= listing._id %>">
+                        <input type="hidden" name="booking[marriageCard]" value="<%= marriageCard._id %>">
+                        
+                        <div class="mb-3 animate__animated animate__fadeInLeft" style="animation-delay: 0.2s">
+                            <label class="form-label">Marriage Card</label>
+                            <input class="form-control border-success" value="<%= marriageCard.cardName %>" type="text" readonly>
+                        </div>
+
+                        <div class="mb-3 animate__animated animate__fadeInRight" style="animation-delay: 0.3s">
+                            <label class="form-label">Shop Name</label>
+                            <input class="form-control border-success" value="<%= listing.shopName %>" type="text" readonly>
+                        </div>
+
+                        <div class="mb-3 animate__animated animate__fadeInLeft" style="animation-delay: 0.4s">
+                            <label class="form-label">Phone Number</label>
+                            <div class="input-group">
+                                <span class="input-group-text bg-success text-white">📞</span>
+                                <input name="booking[phoneNumber]" class="form-control border-success" placeholder="Enter Your Contact Number" type="tel" required>
+                            </div>
+                            <div class="invalid-feedback">Please enter a valid phone number.</div>
+                        </div>
+
+                        <div class="mb-3 animate__animated animate__fadeInRight" style="animation-delay: 0.5s">
+                            <label class="form-label">Customization Requests</label>
+                            <textarea name="booking[customization]" class="form-control border-success" placeholder="Enter any customization requests" rows="3"></textarea>
+                        </div>
+
+                        <div class="mb-4 animate__animated animate__fadeInLeft" style="animation-delay: 0.6s">
+                            <label class="form-label">Quantity</label>
+                            <div class="input-group">
+                                <span class="input-group-text bg-success text-white">🔢</span>
+                                <input name="booking[quantity]" class="form-control border-success" type="number" min="1" value="1" required>
+                            </div>
+                            <div class="invalid-feedback">Please enter a valid quantity (minimum 1).</div>
+                        </div>
+
+                        <div class="text-center animate__animated animate__fadeInUp" style="animation-delay: 0.7s">
+                            <button type="submit" class="btn btn-primary btn-lg w-100 shadow">
+                                Confirm Booking
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Form validation
+        (function() {
+            'use strict';
+            window.addEventListener('load', function() {
+                var forms = document.getElementsByClassName('needs-validation');
+                var validation = Array.prototype.filter.call(forms, function(form) {
+                    form.addEventListener('submit', function(event) {
+                        if (form.checkValidity() === false) {
+                            event.preventDefault();
+                            event.stopPropagation();
+                        }
+                        form.classList.add('was-validated');
+                    }, false);
+                });
+            }, false);
+        })();
+    </script>
+</body>
+</html>

@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Marriage Card</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <style>
+        .card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2) !important;
+        }
+        .form-control:focus, .form-select:focus {
+            box-shadow: 0 0 0 0.25rem rgba(40, 167, 69, 0.25);
+            border-color: #28a745;
+            transition: all 0.3s ease;
+        }
+        .btn-success {
+            transition: all 0.3s ease;
+        }
+        .btn-success:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(40, 167, 69, 0.4);
+        }
+        .form-label {
+            transition: color 0.3s ease;
+            font-weight: bold;
+        }
+        .form-control:focus + .form-label,
+        .form-select:focus + .form-label {
+            color: #28a745;
+        }
+    </style>
+</head>
+<body class="bg-light">
+    <% layout("/layouts/boilerplate") %>
+    <div class="container mt-5">
+        <h2 class="text-center mb-4 animate__animated animate__fadeInDown">Edit Marriage Card</h2>
+
+        <div class="row justify-content-center">
+            <div class="col-lg-6 col-md-8 col-sm-12">
+                <div class="card shadow-lg p-4 animate__animated animate__fadeInUp">
+                    <form method="POST" action="/listings/<%= id %>/Mcard/<%= marriageCard._id %>?_method=PUT" class="needs-validation" novalidate enctype="multipart/form-data">
+                        
+                        <input type="hidden" name="marriageCard[shop]" value="<%= marriageCard.shop %>">
+
+                        <div class="mb-3 animate__animated animate__fadeInLeft" style="animation-delay: 0.2s">
+                            <label class="form-label">Card Name</label>
+                            <div class="input-group">
+                                <span class="input-group-text bg-success text-white">💌</span>
+                                <input name="marriageCard[cardName]" value="<%= marriageCard.cardName %>" class="form-control border-success" placeholder="Enter Card Name" type="text" required>
+                            </div>
+                            <div class="invalid-feedback">Please enter the card name.</div>
+                        </div>
+
+                        <div class="mb-3 animate__animated animate__fadeInRight" style="animation-delay: 0.3s">
+                            <label class="form-label">Description</label>
+                            <textarea name="marriageCard[description]" class="form-control border-success" placeholder="Enter Card Description" rows="3" required><%= marriageCard.description %></textarea>
+                            <div class="invalid-feedback">Please provide a description.</div>
+                        </div>
+
+                        <div class="mb-3 animate__animated animate__fadeInLeft" style="animation-delay: 0.4s">
+                            <label class="form-label">Image URL</label>
+                            <div class="input-group">
+                                <span class="input-group-text bg-success text-white">🖼️</span>
+                                <input name="marriageCard[image]" value="<%= marriageCard.image.url %>" class="form-control border-success"  type="file" >
+                            </div>
+                            <div class="invalid-feedback">Please enter a valid image URL.</div>
+                        </div>
+
+                        <div class="mb-3 animate__animated animate__fadeInRight" style="animation-delay: 0.5s">
+                            <label class="form-label">Price (₹)</label>
+                            <div class="input-group">
+                                <span class="input-group-text bg-success text-white">₹</span>
+                                <input name="marriageCard[price]" value="<%= marriageCard.price %>" class="form-control border-success" placeholder="Enter Card Price" type="number" min="0" step="0.01" required>
+                            </div>
+                            <div class="invalid-feedback">Please enter a valid price.</div>
+                        </div>
+
+                        <div class="mb-3 animate__animated animate__fadeInLeft" style="animation-delay: 0.6s">
+                            <label class="form-label">Theme</label>
+                            <div class="input-group">
+                                <span class="input-group-text bg-success text-white">🎨</span>
+                                <select name="marriageCard[theme]" class="form-select border-success" required>
+                                    <option value="Traditional" <%= marriageCard.theme === "Traditional" ? "selected" : "" %>>Traditional</option>
+                                    <option value="Modern" <%= marriageCard.theme === "Modern" ? "selected" : "" %>>Modern</option>
+                                    <option value="Royal" <%= marriageCard.theme === "Royal" ? "selected" : "" %>>Royal</option>
+                                </select>
+                            </div>
+                            <div class="invalid-feedback">Please select a theme.</div>
+                        </div>
+
+                        <div class="mb-3 animate__animated animate__fadeInRight" style="animation-delay: 0.7s">
+                            <label class="form-label">Material</label>
+                            <div class="input-group">
+                                <span class="input-group-text bg-success text-white">📄</span>
+                                <select name="marriageCard[material]" class="form-select border-success" required>
+                                    <option value="Paper" <%= marriageCard.material === "Paper" ? "selected" : "" %>>Paper</option>
+                                    <option value="Handmade" <%= marriageCard.material === "Handmade" ? "selected" : "" %>>Handmade</option>
+                                    <option value="Digital" <%= marriageCard.material === "Digital" ? "selected" : "" %>>Digital</option>
+                                </select>
+                            </div>
+                            <div class="invalid-feedback">Please select a material type.</div>
+                        </div>
+
+                        <div class="mb-4 animate__animated animate__fadeInLeft" style="animation-delay: 0.8s">
+                            <label class="form-label">Size</label>
+                            <div class="input-group">
+                                <span class="input-group-text bg-success text-white">📏</span>
+                                <input name="marriageCard[size]" value="<%= marriageCard.size %>" class="form-control border-success" placeholder="Enter Card Size (e.g., 5x7 inches)" type="text" required>
+                            </div>
+                            <div class="invalid-feedback">Please enter the card size.</div>
+                        </div>
+
+                        <div class="text-center animate__animated animate__fadeInUp" style="animation-delay: 0.9s">
+                            <button type="submit" class="btn btn-success btn-lg w-100 shadow">
+                                <i class="bi bi-check-circle me-2"></i>Update Card
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Add floating labels behavior
+        document.querySelectorAll('.form-control, .form-select').forEach(input => {
+            input.addEventListener('focus', function() {
+                this.closest('.mb-3').querySelector('.form-label').style.color = '#28a745';
+            });
+            input.addEventListener('blur', function() {
+                if (!this.value) {
+                    this.closest('.mb-3').querySelector('.form-label').style.color = '';
+                }
+            });
+        });
+
+        // Form validation
+      
+    </script>
+</body>
+</html>
