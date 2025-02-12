@@ -1,5 +1,4 @@
 
-        /* Make body take full height */
         html,
         body {
             height: 100%;
@@ -8,26 +7,13 @@
             flex-direction: column;
         }
 
-        /* Make content area grow to push the footer down */
+     
         .main-content {
             flex: 1;
-            /* Adjust this value as needed */
+            
     padding-top: 70px;
             margin-bottom: 40px;
         }
 
  
-        @media (min-width: 768px) and (max-width: 1024px) {
-            body {
-                margin-top :.3rem  !important;
-                padding: 0;
-            }
-        
-            .container {
-                padding: 0  rem !important;
-                margin:  0 !important;
-               
-                
-                max-width: 100% !important; /* Ensures full width */
-            }
-        }
+       
