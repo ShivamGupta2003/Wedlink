@@ -182,7 +182,7 @@ app.get(
       const existingListing = await Listing.findOne({ owner: req.user._id });
 
       if (existingListing) {
-        req.flash("error", "You have already created a listing.");
+        req.flash("error", "You have already registered ..");
         return res.redirect(`/listings/${existingListing._id}`);
       }
 
@@ -204,7 +204,7 @@ app.post(
     const existingListing = await Listing.findOne({ owner: req.user._id });
 
     if (existingListing) {
-      req.flash("error", "You have already created a listing.");
+      req.flash("error", "You have already registered..");
       return res.redirect(`/listings/${existingListing._id}`);
     }
 
@@ -543,7 +543,7 @@ app.post(
 
       await booking.save();
 
-      req.flash("success", "Booking successful! Shop owner will be notified.");
+      req.flash("success", "Booking successful! Shop owner will Contact you.");
       res.redirect(`/users/bookings`);
     } catch (err) {
       console.error(err);
