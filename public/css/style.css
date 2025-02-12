@@ -15,3 +15,21 @@
     padding-top: 70px;
             margin-bottom: 40px;
         }
+
+ 
+       
+
+        @media (min-width: 768px) and (max-width: 1024px) {
+            body {
+                margin-top :.3rem  !important;
+                padding: 0;
+            }
+        
+            .container {
+                padding: 0  rem !important;
+                margin:  0 !important;
+               
+                
+                max-width: 100% !important; /* Ensures full width */
+            }
+        }
