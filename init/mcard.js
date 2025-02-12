@@ -1,6 +1,6 @@
 const marriageCards = [
   {
-    shop: "67ab46bd9a4703e184cd58cb",
+    shop: "67ab46bd9a4703e184cd58ca",
     cardName: "Wedding Anniversary Card",
     description:
       "Elegant anniversary card with silver foil detailing and romantic design",
@@ -15,7 +15,7 @@ const marriageCards = [
     createdAt: "2025-02-15T10:30:00.000Z",
   },
   {
-    shop: "67ab46bd9a4703e184cd58cb",
+    shop: "67ab46bd9a4703e184cd58ca",
     cardName: "Birthday Celebration Card",
     description:
       "Vibrant birthday card with colorful patterns and festive design",
@@ -29,7 +29,7 @@ const marriageCards = [
     createdAt: "2025-02-15T10:30:00.000Z",
   },
   {
-    shop: "67ab46bd9a4703e184cd58cb",
+    shop: "67ab46bd9a4703e184cd58ca",
     cardName: "Engagement Announcement Card",
     description:
       "Sophisticated engagement announcement with floral embellishments",
@@ -43,7 +43,7 @@ const marriageCards = [
     createdAt: "2025-02-15T10:30:00.000Z",
   },
   {
-    shop: "67ab46bd9a4703e184cd58d0",
+    shop: "67ab46bd9a4703e184cd58ca",
     cardName: "Baby Shower Card",
     description: "Adorable baby shower invitation with gentle pastel colors",
     image: {
@@ -56,7 +56,7 @@ const marriageCards = [
     createdAt: "2025-02-15T10:30:00.000Z",
   },
   {
-    shop: "67ab46bd9a4703e184cd58d0",
+    shop: "67ab46bd9a4703e184cd58cb",
     cardName: "Graduation Ceremony Card",
     description:
       "Professional graduation announcement card with academic motifs",
@@ -70,7 +70,7 @@ const marriageCards = [
     createdAt: "2025-02-15T10:30:00.000Z",
   },
   {
-    shop: "67ab46bd9a4703e184cd58d0",
+    shop: "67ab46bd9a4703e184cd58cb",
     cardName: "House Warming Card",
     description:
       "Warm and welcoming house warming invitation with modern design",
@@ -84,7 +84,7 @@ const marriageCards = [
     createdAt: "2025-02-15T10:30:00.000Z",
   },
   {
-    shop: "67ab46bd9a4703e184cd58d1",
+    shop: "67ab46bd9a4703e184cd58cc",
     cardName: "Retirement Party Card",
     description: "Elegant retirement celebration card with golden accents",
     image: {
@@ -97,7 +97,7 @@ const marriageCards = [
     createdAt: "2025-02-15T10:30:00.000Z",
   },
   {
-    shop: "67ab46bd9a4703e184cd58d1",
+    shop: "67ab46bd9a4703e184cd58cc",
     cardName: "New Year Party Card",
     description: "Festive new year celebration card with sparkle effects",
     image: {
@@ -110,7 +110,7 @@ const marriageCards = [
     createdAt: "2025-02-15T10:30:00.000Z",
   },
   {
-    shop: "67ab46bd9a4703e184cd58d2",
+    shop: "67ab46bd9a4703e184cd58cc",
     cardName: "Business Launch Card",
     description:
       "Professional business opening announcement with corporate design",
@@ -124,7 +124,7 @@ const marriageCards = [
     createdAt: "2025-02-15T10:30:00.000Z",
   },
   {
-    shop: "67ab46bd9a4703e184cd58d2",
+    shop: "67ab46bd9a4703e184cd58cd",
     cardName: "Festival Celebration Card",
     description: "Traditional festival greeting card with cultural motifs",
     image: {
@@ -136,6 +136,62 @@ const marriageCards = [
     material: "Handmade",
     size: "(8*16)cm",
     createdAt: "2025-02-12T11:20:00.000Z",
+  },
+  {
+    shop: "67ab46bd9a4703e184cd58cd",
+    cardName: "Wedding Anniversary Card",
+    description:
+      "Elegant anniversary card with silver foil detailing and romantic design",
+    image: {
+      url: "https://img.freepik.com/free-vector/red-ornamental-invitation-card_98292-4371.jpg?t=st=1739351524~exp=1739355124~hmac=a9747ed3c3bd39f501bd6e755ad67edf0646788485eab90c60e33264c86ea3b9&w=740",
+      filename: "anniversary-card-001.jpg",
+    },
+    price: 899.99,
+    theme: "Traditional",
+    material: "Handmade",
+    size: "(7*15)cm",
+    createdAt: "2025-02-15T10:30:00.000Z",
+  },
+  {
+    shop: "67ab46bd9a4703e184cd58cd",
+    cardName: "Birthday Celebration Card",
+    description:
+      "Vibrant birthday card with colorful patterns and festive design",
+    image: {
+      url: "https://img.freepik.com/free-vector/realistic-wedding-invitation-template-chinese-style_52683-32046.jpg?ga=GA1.1.1812009594.1730035210&semt=ais_hybrid",
+    },
+    price: 599.5,
+    theme: "Modern",
+    material: "Paper",
+    size: "(8*16)cm",
+    createdAt: "2025-02-15T10:30:00.000Z",
+  },
+  {
+    shop: "67ab46bd9a4703e184cd58ce",
+    cardName: "Engagement Announcement Card",
+    description:
+      "Sophisticated engagement announcement with floral embellishments",
+    image: {
+      url: "https://img.freepik.com/premium-photo/elegant-mughal-garden-wedding-card-design-with-intricate-jali-patterns-lotus-motifs-royal-color-palette_1305425-13848.jpg?ga=GA1.1.1812009594.1730035210&semt=ais_hybrid",
+    },
+    price: 799.99,
+    theme: "Royal",
+    material: "Handmade",
+    size: "(7*15)cm",
+    createdAt: "2025-02-15T10:30:00.000Z",
+  },
+  {
+    shop: "67ab46bd9a4703e184cd58cf",
+    cardName: "Baby Shower Card",
+    description: "Adorable baby shower invitation with gentle pastel colors",
+    image: {
+      url: "https://img.freepik.com/premium-vector/beautiful-wedding-invitation-with-decorative-mandala_1302-1877.jpg?ga=GA1.1.1812009594.1730035210&semt=ais_hybrid",
+    },
+    price: 699.99,
+    theme: "Modern",
+    material: "Digital",
+    size: "(7*15)cm",
+    createdAt: "2025-02-15T10:30:00.000Z",
   },
 ];
 

@@ -17,9 +17,6 @@ async function main() {
 
 const initdb = async () => {
   try {
-    await MarriageCard.deleteMany({}); // Clears existing data
-    console.log("🗑️ Old marriage cards removed.");
-
     for (let card of initdatac.data) {
       let listing = await Listing.findById(card.shop);
       if (!listing) {
