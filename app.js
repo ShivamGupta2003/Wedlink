@@ -559,6 +559,8 @@ app.get("/users/bookings", isLoggedIn, async (req, res) => {
   const bookings = await Booking.find({ user: req.user._id })
     .populate("marriageCard")
     .populate("shop");
+  console.log(bookings);
+
   res.render("order/userbook", { bookings });
 });
 
