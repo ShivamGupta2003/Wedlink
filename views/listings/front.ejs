@@ -3,24 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Background Video</title>
+    <link rel="icon" type="image/svg+xml" href="/images/favicon3.svg">
+    <title>WedInk</title>
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <style>
+   .video-section {
+    position: relative;
+    width: 100%;
+    height: 100vh; /* Full viewport height */
+    overflow: hidden;
+}
 
-
-
-      
-        .foor{
-            position: absolute;
-            top: 105%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 100%;
-           
-          
-        }
         /* Content Style */
        /* Video Background Container */
 .video-container {
@@ -86,7 +81,7 @@ p {
 /* Adjust for screens between 320px and 941px */
 @media (min-width: 320px) and (max-width: 941px) {
     h1 {
-        font-size: 4.5rem; /* Slightly increased font size for h1 */
+        font-size: 4.5rem ; /* Slightly increased font size for h1 */
     }
     p {
         font-size: 0.8rem; /* Slightly smaller font size for paragraph */
@@ -96,6 +91,9 @@ p {
         padding: 15px 25px;
     }
 }
+
+
+
 
 /* Styling for button */
 .btn-lg {
@@ -174,6 +172,8 @@ p {
 
   
     <%- include("../includes/navbar.ejs") %>
+
+    <section class="video-section">
 <div class="video-container">
   
     <video autoplay loop muted playsinline>
@@ -192,8 +192,10 @@ p {
         <button class="btn btn-primary btn-lg roundess pop-button">Explore</button>
 
     </form>
+
+    </div></section>
  
-</div>
+
 <!-- footer  -->
 
 <div class="foor ">
